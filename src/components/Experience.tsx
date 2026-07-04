@@ -42,7 +42,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 lg:py-32 relative z-10 px-6 max-w-5xl mx-auto">
+    <section id="experience" className="py-16 lg:py-32 relative z-10 px-4 sm:px-6 max-w-5xl mx-auto">
       
       {/* Header */}
       <div className="mb-20 text-center lg:text-left">
@@ -68,34 +68,34 @@ export default function Experience() {
       <div className="relative">
         
         {/* Continuous Vertical Line */}
-        <div className="absolute left-[23px] sm:left-[39px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00df8f] via-[#00df8f]/30 to-transparent" />
+        <div className="absolute left-[15px] sm:left-[39px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00df8f] via-[#00df8f]/30 to-transparent" />
 
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-12 lg:gap-16">
           {experiences.map((exp) => {
             const Icon = exp.icon;
             
             return (
-              <div key={exp.id} className="relative pl-16 sm:pl-24">
+              <div key={exp.id} className="relative pl-12 sm:pl-24">
                 
                 {/* Timeline Node */}
                 <motion.div 
                   initial={{ scale: 0, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ delay: 0.2, type: "spring", stiffness: 300, damping: 20 }}
-                  className="absolute left-0 sm:left-4 top-2 sm:top-6 w-12 h-12 rounded-full bg-[#14181f] border-2 border-[#00df8f] flex items-center justify-center shadow-[0_0_20px_rgba(0,223,143,0.4)] z-10"
+                  viewport={{ once: true, margin: "0px" }}
+                  transition={{ delay: 0.1, type: "spring", stiffness: 300, damping: 20 }}
+                  className="absolute left-[-5px] sm:left-4 top-4 sm:top-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#14181f] border-2 border-[#00df8f] flex items-center justify-center shadow-[0_0_20px_rgba(0,223,143,0.4)] z-10"
                 >
-                  <Icon size={20} className="text-[#00df8f]" />
+                  <Icon size={18} className="text-[#00df8f]" />
                 </motion.div>
 
                 {/* Content Card */}
                 <motion.div
-                  initial={{ opacity: 0, x: 50 }}
+                  initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true, margin: "0px" }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                   whileHover={{ y: -5 }}
-                  className="bg-[#14181f] border border-white/10 rounded-3xl p-6 sm:p-10 hover:border-[#00df8f]/50 hover:shadow-[0_15px_40px_rgba(0,223,143,0.15)] transition-all duration-300 relative group overflow-hidden"
+                  className="bg-[#14181f] border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-10 hover:border-[#00df8f]/50 hover:shadow-[0_15px_40px_rgba(0,223,143,0.15)] transition-all duration-300 relative group overflow-hidden w-full"
                 >
                   {/* Subtle hover glow background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#00df8f]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -115,15 +115,15 @@ export default function Experience() {
                       </span>
                     </div>
 
-                    <ul className="space-y-4">
+                    <ul className="space-y-3 sm:space-y-4">
                       {exp.points.map((point, i) => (
                         <motion.li 
                           key={i}
                           initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.4 + (i * 0.1) }}
-                          className="flex items-start gap-4 text-gray-300 group-hover:text-white transition-colors"
+                          viewport={{ once: true, margin: "0px" }}
+                          transition={{ delay: 0.2 + (i * 0.1) }}
+                          className="flex items-start gap-3 sm:gap-4 text-gray-300 group-hover:text-white transition-colors text-sm sm:text-base"
                         >
                           <CheckCircle2 size={20} className="text-[#00df8f] mt-0.5 shrink-0" />
                           <span className="leading-relaxed">{point}</span>

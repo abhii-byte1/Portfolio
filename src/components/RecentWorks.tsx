@@ -72,8 +72,8 @@ const projects = [
 
 export default function RecentWorks() {
   return (
-    <section id="work" className="py-24 lg:py-32 bg-[#0d1116] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="work" className="py-16 lg:py-32 bg-[#0d1116] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Header */}
         <motion.div 
@@ -93,18 +93,18 @@ export default function RecentWorks() {
         </motion.div>
 
         {/* Case Studies Container */}
-        <div className="flex flex-col gap-24 lg:gap-32">
+        <div className="flex flex-col gap-16 lg:gap-32">
           {projects.map((project, index) => {
             const isEven = index % 2 === 0;
 
             return (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-16 items-center`}
+                viewport={{ once: true, margin: "0px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}
               >
                 {/* Image Section */}
                 <div className="w-full lg:w-1/2 relative group rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-[#14181f] aspect-[4/3] sm:aspect-video lg:aspect-[4/3]">
@@ -132,7 +132,7 @@ export default function RecentWorks() {
                   </div>
 
                   {/* Problem Statement */}
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8 hover:border-[#00df8f]/30 hover:bg-white/10 transition-colors shadow-lg">
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 mb-8 hover:border-[#00df8f]/30 hover:bg-white/10 transition-colors shadow-lg">
                     <div className="flex gap-3 mb-2">
                       <Search size={20} className="text-[#00df8f] shrink-0" />
                       <h5 className="text-white font-bold tracking-wide">The Problem</h5>
@@ -185,7 +185,7 @@ export default function RecentWorks() {
                       href={project.demo}
                       target="_blank"
                       rel="noreferrer"
-                      className="group flex items-center justify-center gap-3 bg-[#00df8f] text-black px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-[#00b373] hover:shadow-[0_0_20px_rgba(0,223,143,0.4)] transition-all duration-300 w-full sm:w-auto"
+                      className="group flex items-center justify-center gap-3 bg-[#00df8f] text-black px-6 py-4 sm:py-3 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-[#00b373] hover:shadow-[0_0_20px_rgba(0,223,143,0.4)] transition-all duration-300 w-full sm:w-auto h-14 sm:h-auto"
                     >
                       <ExternalLink size={18} />
                       Live Demo
@@ -194,7 +194,7 @@ export default function RecentWorks() {
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="group flex items-center justify-center gap-3 bg-[#14181f] border border-white/10 text-white px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-white/5 hover:border-white/30 hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
+                      className="group flex items-center justify-center gap-3 bg-[#14181f] border border-white/10 text-white px-6 py-4 sm:py-3 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-white/5 hover:border-white/30 hover:shadow-lg transition-all duration-300 w-full sm:w-auto h-14 sm:h-auto"
                     >
                       <GithubIcon size={18} className="text-[#00df8f]" />
                       Repository

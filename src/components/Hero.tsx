@@ -28,7 +28,7 @@ export default function Hero() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#0d1116] pt-24"
+      className="relative min-h-[100svh] flex flex-col justify-center pt-28 pb-16 lg:pt-0 overflow-hidden bg-[#0d1116]"
     >
       {/* Grid Overlay */}
       <div 
@@ -56,74 +56,59 @@ export default function Hero() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
-          className="flex flex-col items-start pt-10 lg:pt-0"
+          className="flex flex-col items-center lg:items-start pt-10 lg:pt-0"
         >
-          <div className="flex items-center gap-3 mb-6 bg-white/5 border border-white/10 px-4 py-2 rounded-full">
-            <span className="w-2 h-2 rounded-full bg-[#00df8f] animate-pulse" />
-            <span className="text-sm font-semibold tracking-widest uppercase text-gray-300">Full Stack Developer</span>
-          </div>
-
-          <h2 className="font-display font-bold text-6xl sm:text-7xl md:text-8xl leading-[0.9] tracking-tighter text-white mb-2">
-            ABHISHEK
-          </h2>
-          <h2 className="font-display font-bold text-6xl sm:text-7xl md:text-8xl leading-[0.9] tracking-tighter mb-4 flex items-end">
-            <span 
-              className="text-transparent"
-              style={{ WebkitTextStroke: '2px #00df8f' }}
-            >
-              MEENA
-            </span>
-          </h2>
-
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-gray-300 font-sans text-xl sm:text-2xl font-medium mb-8 tracking-wide"
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="mb-6 flex flex-col items-center lg:items-start"
           >
-            Full Stack Developer | <span className="text-[#00df8f]">React</span> • <span className="text-[#00df8f]">Node.js</span> • <span className="text-[#00df8f]">APIs</span>
+            <h1 className="font-display font-bold text-[clamp(2.5rem,8vw,6rem)] text-white leading-[0.9] tracking-tighter mb-4 text-center lg:text-left">
+              HELLO, I'M <br />
+              <span className="text-transparent" style={{ WebkitTextStroke: '2px #00df8f' }}>ABHISHEK MEENA</span>
+            </h1>
+            <h2 className="text-[#00df8f] font-mono text-sm sm:text-base md:text-lg tracking-[0.2em] uppercase font-semibold text-center lg:text-left">
+              Full Stack Developer <span className="text-white">|</span> React <span className="text-white">•</span> Node.js <span className="text-white">•</span> APIs
+            </h2>
           </motion.div>
 
           <motion.p 
             initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-            className="text-gray-400 font-sans text-xl max-w-2xl leading-relaxed mb-10 text-center lg:text-left self-center lg:self-start"
+            className="text-gray-400 font-sans text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed mb-10 text-center lg:text-left self-center lg:self-start px-4 sm:px-0"
           >
             I build modern, scalable web applications and transform ideas into <span className="text-white font-semibold">production-ready</span> digital experiences using React, Node.js, and <span className="text-[#00df8f] font-semibold">AI-driven solutions</span>.
           </motion.p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 w-full">
-            {/* Primary Button */}
-            <button 
-              onClick={() => scrollToSection('work')}
-              className="group flex items-center justify-center gap-4 bg-gradient-to-r from-[#00df8f] to-[#00b373] px-8 py-4 rounded-full text-black font-bold uppercase tracking-widest hover:scale-105 hover:shadow-[0_0_20px_rgba(0,223,143,0.4)] transition-all duration-300 w-full sm:w-auto"
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4 w-full px-6 sm:px-0">
+            <a 
+              href="#work"
+              className="group flex items-center justify-center gap-3 bg-[#00df8f] text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-[#00b373] transition-all duration-300 w-full sm:w-auto h-14"
             >
               View Projects
-              <div className="bg-black/10 rounded-full p-1 group-hover:rotate-45 transition-transform duration-300">
-                <ArrowUpRight size={18} strokeWidth={2.5} />
+              <div className="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+                <ArrowUpRight size={16} />
               </div>
-            </button>
+            </a>
             
-            {/* Secondary Button: Resume */}
             <a 
               href="/resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="group flex items-center justify-center gap-3 bg-[#14181f] border border-white/10 px-8 py-4 rounded-full text-white font-bold uppercase tracking-widest hover:bg-white/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
+              download="Abhishek_Meena_Resume.pdf"
+              className="group flex items-center justify-center gap-3 bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:border-[#00df8f] hover:text-[#00df8f] transition-all duration-300 w-full sm:w-auto h-14"
             >
-              <Download size={18} className="text-[#00df8f]" />
-              Download Resume
+              <Download size={16} />
+              Resume
             </a>
 
-            {/* Secondary Button: Contact */}
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="group flex items-center justify-center gap-3 bg-[#14181f] border border-white/10 px-8 py-4 rounded-full text-white font-bold uppercase tracking-widest hover:bg-white/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
+            <a 
+              href="#contact"
+              className="group flex items-center justify-center gap-3 bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:border-[#00df8f] hover:text-[#00df8f] transition-all duration-300 w-full sm:w-auto h-14"
             >
-              <Mail size={18} className="text-[#00df8f]" />
-              Contact Me
-            </button>
+              <Mail size={16} />
+              Contact
+            </a>
           </div>
 
           {/* Social Links */}
@@ -164,41 +149,35 @@ export default function Hero() {
         </motion.div>
 
         {/* Right Column - Profile Image */}
-        <div className="flex items-center justify-center lg:justify-end h-[400px] lg:h-full relative pointer-events-auto mt-20 lg:mt-0">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="lg:w-1/2 flex justify-center items-center relative mb-12 lg:mb-0"
+        >
+          {/* Animated Glowing Ring */}
+          <div className="absolute w-[260px] h-[260px] md:w-[420px] md:h-[420px] rounded-full border border-[#00df8f]/30 border-dashed animate-[spin_20s_linear_infinite]" />
+          <div className="absolute w-[280px] h-[280px] md:w-[460px] md:h-[460px] rounded-full border border-white/10 animate-[spin_30s_linear_infinite_reverse]" />
           
-          {/* Soft neon glow behind the image */}
-          <div className="absolute w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] bg-[#00df8f]/20 rounded-full blur-[80px]" />
+          {/* Neon Glow Behind Image */}
+          <div className="absolute w-[220px] h-[220px] md:w-[340px] md:h-[340px] rounded-full bg-[#00df8f]/20 blur-[60px] md:blur-[100px]" />
 
-          {/* Floating Container */}
-          <motion.div
-            animate={{ 
-              y: [0, -15, 0]
-            }}
-            transition={{
-              y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
-            }}
-            className="relative z-10"
+          {/* Image Container */}
+          <motion.div 
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="relative w-[220px] h-[220px] md:w-[380px] md:h-[380px] rounded-full overflow-hidden border-4 border-[#14181f] shadow-[0_0_50px_rgba(0,223,143,0.3)] z-10 group"
           >
-            {/* Animated glowing rings */}
-            <div className="absolute inset-[-15px] sm:inset-[-20px] rounded-full border-2 border-[#00df8f]/30 border-dashed animate-[spin_12s_linear_infinite]" />
-            <div className="absolute inset-[-25px] sm:inset-[-35px] rounded-full border border-[#00df8f]/10 animate-[spin_20s_linear_infinite_reverse]" />
-            
-            {/* Circular Frame */}
-            <motion.div 
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-[#14181f] shadow-[0_0_40px_rgba(0,223,143,0.3)] bg-[#14181f]"
-            >
-              <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] z-10 pointer-events-none" />
-              <img 
-                src="/abhishek.jpg" 
-                alt="Abhishek Meena" 
-                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
-                draggable={false}
-              />
-            </motion.div>
+            <img 
+              src="/abhishek.jpg" 
+              alt="Abhishek Meena" 
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%2314181f'/%3E%3Ccircle cx='200' cy='200' r='120' fill='%2300df8f' opacity='0.2'/%3E%3C/svg%3E";
+              }}
+              className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-110 group-hover:-rotate-3 ease-out"
+            />
           </motion.div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -37,7 +37,7 @@ export default function Services() {
   };
 
   return (
-    <section className="py-32 bg-[#0d1116]">
+    <section id="services" className="py-16 lg:py-32 bg-[#0d1116] border-t border-white/5">
       <div className="max-w-4xl mx-auto px-6 md:px-12">
         
         {/* Heading */}
@@ -46,7 +46,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-24"
+          className="text-center mb-16 md:mb-24"
         >
           <div className="flex items-center justify-center gap-3 mb-6">
             <span className="w-2 h-2 bg-[#00df8f] rounded-full" />
@@ -76,7 +76,7 @@ export default function Services() {
               >
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className="w-full flex items-center justify-between py-8 sm:py-10 group text-left"
+                  className="w-full flex items-center justify-between py-6 sm:py-10 group text-left"
                 >
                   <div className="flex items-center gap-6 sm:gap-12">
                     <span className="font-mono text-lg text-gray-500">
