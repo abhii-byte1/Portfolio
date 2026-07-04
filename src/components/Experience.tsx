@@ -71,7 +71,7 @@ export default function Experience() {
         <div className="absolute left-[23px] sm:left-[39px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00df8f] via-[#00df8f]/30 to-transparent" />
 
         <div className="flex flex-col gap-16">
-          {experiences.map((exp, index) => {
+          {experiences.map((exp) => {
             const Icon = exp.icon;
             
             return (
