@@ -1,52 +1,71 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Github, ExternalLink, CheckCircle2, Search, Zap } from 'lucide-react';
 
 const projects = [
   {
     id: 1,
-    title: 'ShieldHer',
-    category: 'Full Stack Application',
-    description: 'A comprehensive women safety SOS web application featuring one-tap emergency activation, live GPS geolocation streaming, automated WhatsApp alert dispatch, and a loud alarm siren served by a robust Node.js backend with a 4-table SQLite schema safe-cancel state engine.',
-    tags: ['HTML5', 'Vanilla JS', 'Node.js', 'Express.js', 'SQLite'],
+    title: 'ShieldHer — Women Safety Tool',
+    category: 'Full Stack Web Application',
+    problem: 'Women facing emergencies need an immediate, single-tap mechanism to alert contacts, stream location, and trigger alarms without navigating complex menus.',
+    features: [
+      'One-tap emergency activation interface',
+      'Live GPS geolocation streaming',
+      'Automated WhatsApp alert dispatch',
+      'Loud alarm siren generation',
+      'Safe-cancel state engine to prevent misfires'
+    ],
+    technologies: ['HTML5', 'Vanilla JS', 'Node.js', 'Express.js', 'SQLite'],
+    challenges: 'Designing a foolproof 4-table SQLite schema state engine that allows lightning-fast SOS triggers while actively preventing accidental misfires during high-stress situations.',
+    role: 'Lead Full Stack Developer & IEEE Research Author',
+    status: 'Completed (Published in IJRPA & IEEE)',
     image: '/shieldher.png',
-    link: '#'
+    github: 'https://github.com/abhii-byte1/women-safety-tool-updated',
+    demo: 'https://women-safety-tool-updated-1.onrender.com'
   },
   {
     id: 2,
     title: 'Smart Waste Management',
     category: 'MERN Stack Platform',
-    description: 'A full-stack civic complaint platform with role-based JWT authentication, dedicated admin/user dashboards, and real-time complaint status tracking. Built on a highly scalable MVC backend architecture seeding default accounts for rapid demo deployment.',
-    tags: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'Tailwind'],
+    problem: 'Citizens lack a transparent, real-time platform to lodge and track civic waste complaints directly with municipal administrators.',
+    features: [
+      'Role-based JWT authentication for Admins & Users',
+      'Dedicated analytics dashboards per role',
+      'Real-time complaint status tracking',
+      'Scalable MVC backend architecture',
+      'Pre-seeded database for rapid demo deployment'
+    ],
+    technologies: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'Tailwind'],
+    challenges: 'Architecting a highly modular MVC backend with dedicated controllers and services layers to ensure the platform remains scalable as complaint volume grows.',
+    role: 'Full Stack Architect & Developer',
+    status: 'Completed',
     image: '/wastemanagement.jpg',
-    link: '#'
+    github: 'https://github.com/abhii-byte1/smart-waste-management-system',
+    demo: 'https://smart-waste-management-system-2-2817.onrender.com'
   },
   {
     id: 3,
-    title: 'E-Commerce Dashboard',
+    title: 'E-Commerce Analytics Dashboard',
     category: 'Frontend Engineering',
-    description: 'A highly responsive analytics dashboard built for tracking real-time sales metrics, user acquisition, and inventory management. Implemented complex chart visualizations and a customized data table with sorting and filtering capabilities.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts'],
+    problem: 'Store owners need a highly responsive, visual interface to quickly digest complex real-time sales metrics, user acquisition data, and inventory.',
+    features: [
+      'Real-time sales metrics and KPI tracking',
+      'Complex interactive chart visualizations',
+      'Customized data tables with sorting/filtering',
+      'Fluid responsive grid layouts for all devices'
+    ],
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts'],
+    challenges: 'Rendering heavy datasets into performant, interactive UI visualizations without layout shifts or frame drops on low-end devices.',
+    role: 'Frontend Engineer',
+    status: 'Completed',
     image: '/dashboard.jpg',
-    link: '#'
+    github: 'https://github.com/abhii-byte1',
+    demo: '#'
   }
 ];
 
 export default function RecentWorks() {
-  const [activeIdx, setActiveIdx] = useState(0);
-
-  const handleCardClick = (index: number) => {
-    if (index === activeIdx) {
-      // Cycle to the next card if front card is clicked
-      setActiveIdx((prev) => (prev + 1) % projects.length);
-    } else {
-      // Pull clicked card to front
-      setActiveIdx(index);
-    }
-  };
-
   return (
-    <section id="work" className="py-32 bg-[#0d1116] overflow-hidden">
+    <section id="work" className="py-24 lg:py-32 bg-[#0d1116] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Header */}
@@ -55,140 +74,132 @@ export default function RecentWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20"
+          className="mb-20"
         >
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="w-2 h-2 bg-[#00df8f] rounded-full" />
-              <h3 className="font-mono text-sm tracking-widest text-[#00df8f] uppercase">Selected Projects</h3>
-            </div>
-            <h2 className="font-display font-bold text-5xl sm:text-6xl tracking-tighter text-white leading-[0.9]">
-              RECENT WORKS.
-            </h2>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-2 h-2 bg-[#00df8f] rounded-full animate-pulse" />
+            <h3 className="font-mono text-sm tracking-widest text-[#00df8f] uppercase">Product Case Studies</h3>
           </div>
-          <button className="text-gray-300 font-mono text-sm uppercase tracking-widest hover:text-[#00df8f] transition-colors border-b border-white/20 hover:border-[#00df8f] pb-1 w-max">
-            View All Projects
-          </button>
+          <h2 className="font-display font-bold text-5xl sm:text-7xl tracking-tighter text-white leading-[0.9]">
+            FEATURED <span className="text-transparent" style={{ WebkitTextStroke: '2px #00df8f' }}>PROJECTS.</span>
+          </h2>
         </motion.div>
 
-        {/* 3D Stack & Details Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
-          
-          {/* Left Side - 3D Card Stack */}
-          <div className="lg:col-span-7 flex flex-col h-[340px] sm:h-[450px] md:h-[480px]">
-            <div className="relative flex-1 w-full flex justify-center perspective-[1200px]">
-              {projects.map((project, index) => {
-                // Calculate position relative to active card
-                let diff = index - activeIdx;
-                if (diff < 0) diff += projects.length; // Wrap around for infinite stack feel
-                
-                const isFront = diff === 0;
+        {/* Case Studies Container */}
+        <div className="flex flex-col gap-24 lg:gap-32">
+          {projects.map((project, index) => {
+            const isEven = index % 2 === 0;
 
-                return (
-                  <motion.div
-                    key={project.id}
-                    onClick={() => handleCardClick(index)}
-                    animate={{
-                      y: diff * 35,
-                      scale: 1 - diff * 0.05,
-                      rotateX: diff * 2,
-                      zIndex: projects.length - diff,
-                      opacity: diff > 2 ? 0 : 1 // Hide cards too far back
-                    }}
-                    transition={{
-                      duration: 0.6,
-                      ease: [0.32, 0.72, 0, 1]
-                    }}
-                    className={`absolute top-0 w-full max-w-xl aspect-video bg-[#14181f] rounded-3xl overflow-hidden cursor-pointer shadow-2xl border border-white/10 ${isFront ? 'shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : ''}`}
-                    style={{ transformOrigin: 'top center' }}
-                  >
-                    {/* Overlay to dim back cards */}
-                    <motion.div 
-                      animate={{ opacity: isFront ? 0 : 0.6 }}
-                      className="absolute inset-0 bg-[#0d1116] z-10 pointer-events-none transition-opacity duration-300"
-                    />
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover grayscale-[0.2]"
-                    />
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Navigation Buttons */}
-            <div className="flex justify-center gap-4 mt-8 lg:mt-12">
-              <button
-                onClick={() => setActiveIdx((prev) => (prev - 1 + projects.length) % projects.length)}
-                className="group flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-3 rounded-full text-white font-mono text-sm uppercase tracking-widest hover:border-[#00df8f] hover:text-[#00df8f] transition-all duration-300"
-              >
-                <div className="bg-white/10 rounded-full p-1 group-hover:bg-[#00df8f]/20 transition-colors">
-                  <ArrowLeft size={16} />
-                </div>
-                Back
-              </button>
-              
-              <button
-                onClick={() => setActiveIdx((prev) => (prev + 1) % projects.length)}
-                className="group flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-3 rounded-full text-white font-mono text-sm uppercase tracking-widest hover:border-[#00df8f] hover:text-[#00df8f] transition-all duration-300"
-              >
-                Next
-                <div className="bg-white/10 rounded-full p-1 group-hover:bg-[#00df8f]/20 transition-colors">
-                  <ArrowRight size={16} />
-                </div>
-              </button>
-            </div>
-          </div>
-
-          {/* Right Side - Description Panel */}
-          <div className="lg:col-span-5 flex items-start">
-            <AnimatePresence mode="wait">
+            return (
               <motion.div
-                key={activeIdx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="w-full"
+                key={project.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-16 items-center`}
               >
-                <div className="font-mono text-sm tracking-widest text-gray-500 uppercase mb-4">
-                  {projects[activeIdx].category}
-                </div>
-                
-                <h3 className="font-display font-bold text-4xl sm:text-5xl text-white tracking-tighter mb-6 leading-[1]">
-                  {projects[activeIdx].title}
-                </h3>
-                
-                <p className="text-gray-400 font-sans text-lg leading-relaxed mb-8">
-                  {projects[activeIdx].description}
-                </p>
-
-                <div className="flex flex-wrap gap-3 mb-10">
-                  {projects[activeIdx].tags.map(tag => (
-                    <span 
-                      key={tag}
-                      className="px-4 py-2 rounded-full bg-[#14181f] border border-white/5 text-gray-300 text-xs font-mono uppercase tracking-widest"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <a 
-                  href={projects[activeIdx].link}
-                  className="group inline-flex items-center gap-4 text-white font-bold uppercase tracking-widest hover:text-[#00df8f] transition-colors"
-                >
-                  Explore Project
-                  <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#00df8f] group-hover:rotate-45 transition-all duration-300">
-                    <ArrowUpRight size={16} />
+                {/* Image Section */}
+                <div className="w-full lg:w-1/2 relative group rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-[#14181f] aspect-[4/3] sm:aspect-video lg:aspect-[4/3]">
+                  <div className="absolute inset-0 bg-[#00df8f]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay pointer-events-none" />
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  
+                  {/* Status Badge */}
+                  <div className="absolute top-4 left-4 z-20 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+                    <div className="w-2 h-2 bg-[#00df8f] rounded-full" />
+                    <span className="text-white text-xs font-mono uppercase tracking-widest">{project.status}</span>
                   </div>
-                </a>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                </div>
 
+                {/* Content Section */}
+                <div className="w-full lg:w-1/2 flex flex-col">
+                  <div className="mb-6">
+                    <h4 className="text-[#00df8f] font-mono text-sm uppercase tracking-widest mb-2">{project.category}</h4>
+                    <h3 className="font-display text-4xl sm:text-5xl font-bold text-white tracking-tighter leading-tight">
+                      {project.title}
+                    </h3>
+                  </div>
+
+                  {/* Problem Statement */}
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8 hover:border-[#00df8f]/30 hover:bg-white/10 transition-colors shadow-lg">
+                    <div className="flex gap-3 mb-2">
+                      <Search size={20} className="text-[#00df8f] shrink-0" />
+                      <h5 className="text-white font-bold tracking-wide">The Problem</h5>
+                    </div>
+                    <p className="text-gray-400 text-sm leading-relaxed ml-8">{project.problem}</p>
+                  </div>
+
+                  {/* Features List */}
+                  <div className="mb-8">
+                    <h5 className="text-white font-bold tracking-wide mb-4 flex items-center gap-2">
+                      <Zap size={20} className="text-[#00df8f]" /> Key Features
+                    </h5>
+                    <ul className="space-y-3">
+                      {project.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-3 text-gray-400 text-sm">
+                          <CheckCircle2 size={18} className="text-[#00df8f] mt-0.5 shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {project.technologies.map(tech => (
+                      <span 
+                        key={tech} 
+                        className="px-3 py-1.5 bg-[#14181f] border border-white/10 rounded-lg text-gray-300 text-xs font-mono uppercase tracking-wider hover:border-[#00df8f] hover:text-[#00df8f] hover:shadow-[0_0_10px_rgba(0,223,143,0.2)] transition-all cursor-default"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Role & Challenges */}
+                  <div className="grid sm:grid-cols-2 gap-6 mb-10">
+                    <div>
+                      <h6 className="text-white font-bold text-sm mb-2 opacity-80">My Role</h6>
+                      <p className="text-[#00df8f] text-sm">{project.role}</p>
+                    </div>
+                    <div>
+                      <h6 className="text-white font-bold text-sm mb-2 opacity-80">Challenge Solved</h6>
+                      <p className="text-gray-400 text-xs leading-relaxed">{project.challenges}</p>
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-4 mt-auto">
+                    <a 
+                      href={project.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group flex items-center justify-center gap-3 bg-[#00df8f] text-black px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-[#00b373] hover:shadow-[0_0_20px_rgba(0,223,143,0.4)] transition-all duration-300 w-full sm:w-auto"
+                    >
+                      <ExternalLink size={18} />
+                      Live Demo
+                    </a>
+                    <a 
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group flex items-center justify-center gap-3 bg-[#14181f] border border-white/10 text-white px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-white/5 hover:border-white/30 hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
+                    >
+                      <Github size={18} className="text-[#00df8f]" />
+                      Repository
+                    </a>
+                  </div>
+                </div>
+
+              </motion.div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );
