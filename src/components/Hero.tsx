@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Download, Mail, Github, Linkedin } from 'lucide-react';
 import { useRef } from 'react';
 
 export default function Hero() {
@@ -51,7 +51,7 @@ export default function Hero() {
           <h2 className="font-display font-bold text-6xl sm:text-7xl md:text-8xl leading-[0.9] tracking-tighter text-white mb-2">
             ABHISHEK
           </h2>
-          <h2 className="font-display font-bold text-6xl sm:text-7xl md:text-8xl leading-[0.9] tracking-tighter mb-8 flex items-end">
+          <h2 className="font-display font-bold text-6xl sm:text-7xl md:text-8xl leading-[0.9] tracking-tighter mb-4 flex items-end">
             <span 
               className="text-transparent"
               style={{ WebkitTextStroke: '2px #00df8f' }}
@@ -60,86 +60,128 @@ export default function Hero() {
             </span>
           </h2>
 
-          <p className="text-gray-400 font-sans text-lg max-w-md leading-relaxed mb-10">
-            I craft highly scalable, robust, and visually stunning web applications utilizing the MERN stack and clean code practices.
-          </p>
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-gray-300 font-sans text-xl sm:text-2xl font-medium mb-8 tracking-wide"
+          >
+            Full Stack Developer | <span className="text-[#00df8f]">React</span> • <span className="text-[#00df8f]">Node.js</span> • <span className="text-[#00df8f]">APIs</span>
+          </motion.div>
 
-          <div className="flex flex-wrap items-center gap-6">
+          <motion.p 
+            initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+            className="text-gray-400 font-sans text-xl max-w-2xl leading-relaxed mb-10 text-center lg:text-left self-center lg:self-start"
+          >
+            I build modern, scalable web applications and transform ideas into <span className="text-white font-semibold">production-ready</span> digital experiences using React, Node.js, and <span className="text-[#00df8f] font-semibold">AI-driven solutions</span>.
+          </motion.p>
+
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 w-full">
+            {/* Primary Button */}
             <button 
               onClick={() => scrollToSection('work')}
-              className="group flex items-center gap-4 bg-gradient-to-r from-[#00df8f] to-[#00b373] px-8 py-4 rounded-full text-black font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-300"
+              className="group flex items-center justify-center gap-4 bg-gradient-to-r from-[#00df8f] to-[#00b373] px-8 py-4 rounded-full text-black font-bold uppercase tracking-widest hover:scale-105 hover:shadow-[0_0_20px_rgba(0,223,143,0.4)] transition-all duration-300 w-full sm:w-auto"
             >
-              View My Work
+              View Projects
               <div className="bg-black/10 rounded-full p-1 group-hover:rotate-45 transition-transform duration-300">
                 <ArrowUpRight size={18} strokeWidth={2.5} />
               </div>
             </button>
+            
+            {/* Secondary Button: Resume */}
+            <a 
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center justify-center gap-3 bg-[#14181f] border border-white/10 px-8 py-4 rounded-full text-white font-bold uppercase tracking-widest hover:bg-white/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
+            >
+              <Download size={18} className="text-[#00df8f]" />
+              Download Resume
+            </a>
+
+            {/* Secondary Button: Contact */}
             <button 
               onClick={() => scrollToSection('contact')}
-              className="flex items-center gap-3 bg-[#14181f] border border-white/10 px-8 py-4 rounded-full text-white font-bold uppercase tracking-widest hover:border-white/30 transition-colors"
+              className="group flex items-center justify-center gap-3 bg-[#14181f] border border-white/10 px-8 py-4 rounded-full text-white font-bold uppercase tracking-widest hover:bg-white/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
             >
+              <Mail size={18} className="text-[#00df8f]" />
               Contact Me
-              <span className="w-2 h-2 rounded-full bg-[#00df8f]" />
             </button>
           </div>
+
+          {/* Social Links */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex items-center gap-6 mt-12 w-full justify-center lg:justify-start"
+          >
+            <a 
+              href="https://github.com/abhii-byte1"
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 bg-white/5 border border-white/10 rounded-full text-gray-400 hover:text-[#00df8f] hover:border-[#00df8f] hover:bg-[#00df8f]/10 hover:shadow-[0_0_15px_rgba(0,223,143,0.3)] hover:-translate-y-1 transition-all duration-300"
+              aria-label="GitHub"
+            >
+              <Github size={20} strokeWidth={2} />
+            </a>
+            
+            <a 
+              href="https://linkedin.com/in/abhishek-meena-0647663a0"
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 bg-white/5 border border-white/10 rounded-full text-gray-400 hover:text-[#00df8f] hover:border-[#00df8f] hover:bg-[#00df8f]/10 hover:shadow-[0_0_15px_rgba(0,223,143,0.3)] hover:-translate-y-1 transition-all duration-300"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} strokeWidth={2} />
+            </a>
+
+            <a 
+              href="mailto:mabhi7411@gmail.com"
+              className="p-3 bg-white/5 border border-white/10 rounded-full text-gray-400 hover:text-[#00df8f] hover:border-[#00df8f] hover:bg-[#00df8f]/10 hover:shadow-[0_0_15px_rgba(0,223,143,0.3)] hover:-translate-y-1 transition-all duration-300"
+              aria-label="Email"
+            >
+              <Mail size={20} strokeWidth={2} />
+            </a>
+          </motion.div>
         </motion.div>
 
-        {/* Right Column - Interactive ID Card */}
-        <div className="flex items-center justify-center lg:justify-end h-[500px] lg:h-full relative pointer-events-none lg:pointer-events-auto">
-          {/* Lanyard Strip */}
-          <div className="absolute top-[-100px] lg:top-[-200px] w-8 h-[300px] lg:h-[400px] bg-gradient-to-b from-[#00df8f]/10 to-[#00df8f]/80 z-0 skew-x-[-5deg] rounded-b-xl shadow-[0_0_20px_rgba(0,223,143,0.3)] border-b-2 border-l border-r border-[#00df8f]" />
+        {/* Right Column - Profile Image */}
+        <div className="flex items-center justify-center lg:justify-end h-[400px] lg:h-full relative pointer-events-auto mt-20 lg:mt-0">
+          
+          {/* Soft neon glow behind the image */}
+          <div className="absolute w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] bg-[#00df8f]/20 rounded-full blur-[80px]" />
 
+          {/* Floating Container */}
           <motion.div
-            drag
-            dragConstraints={containerRef}
-            dragElastic={0.2}
-            dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-            whileDrag={{ scale: 1.05, cursor: 'grabbing' }}
             animate={{ 
-              y: [0, -15, 0],
-              rotateZ: [-1, 1, -1]
+              y: [0, -15, 0]
             }}
             transition={{
-              y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-              rotateZ: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+              y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
             }}
-            className="relative z-10 w-72 sm:w-80 h-auto aspect-[2.5/3.5] bg-[#14181f] rounded-3xl p-3 shadow-2xl border border-white/10 cursor-grab backdrop-blur-sm group pointer-events-auto mt-20 lg:mt-0"
+            className="relative z-10"
           >
-            {/* Inner Border */}
-            <div className="w-full h-full rounded-2xl border border-white/5 relative overflow-hidden flex flex-col">
-              {/* Top Slot */}
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-2 bg-[#0d1116] rounded-full shadow-inner z-20 border border-white/10" />
-
-              {/* Portrait */}
+            {/* Animated glowing rings */}
+            <div className="absolute inset-[-15px] sm:inset-[-20px] rounded-full border-2 border-[#00df8f]/30 border-dashed animate-[spin_12s_linear_infinite]" />
+            <div className="absolute inset-[-25px] sm:inset-[-35px] rounded-full border border-[#00df8f]/10 animate-[spin_20s_linear_infinite_reverse]" />
+            
+            {/* Circular Frame */}
+            <motion.div 
+              whileHover={{ scale: 1.05, rotate: 2 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-[#14181f] shadow-[0_0_40px_rgba(0,223,143,0.3)] bg-[#14181f]"
+            >
+              <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] z-10 pointer-events-none" />
               <img 
                 src="/abhishek.jpg" 
                 alt="Abhishek Meena" 
-                className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100"
+                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
                 draggable={false}
               />
-
-              {/* Bottom Gradient Overlay */}
-              <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#14181f] via-[#14181f]/80 to-transparent p-6 flex flex-col justify-end">
-                <h3 className="font-display font-bold text-3xl text-white tracking-tighter">
-                  Abhishek.
-                </h3>
-                <p className="text-[#00df8f] font-mono text-xs tracking-widest uppercase mt-1">
-                  Full Stack Developer
-                </p>
-                {/* Barcode Mock */}
-                <div className="mt-4 flex gap-1 h-6 opacity-30">
-                  <div className="w-1 bg-white h-full" />
-                  <div className="w-2 bg-white h-full" />
-                  <div className="w-1 bg-white h-full" />
-                  <div className="w-3 bg-white h-full" />
-                  <div className="w-1 bg-white h-full" />
-                  <div className="w-2 bg-white h-full" />
-                  <div className="w-1 bg-white h-full" />
-                  <div className="w-4 bg-white h-full" />
-                  <div className="w-1 bg-white h-full" />
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
