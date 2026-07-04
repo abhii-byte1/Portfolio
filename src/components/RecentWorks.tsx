@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight, ExternalLink, CheckCircle2, Search, Zap } from 'lucide-react';
+import { ExternalLink, CheckCircle2, Search, Zap } from 'lucide-react';
 
 const GithubIcon = ({ size = 24, strokeWidth = 2, className = "" }: any) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className}>
