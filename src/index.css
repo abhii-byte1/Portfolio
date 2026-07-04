@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Anton", "Impact", "Arial Black", sans-serif;
+  --font-sans: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+::selection {
+  background: #CCFF00;
+  color: #000000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #030014;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Base resets for inputs */
+input, textarea, select {
+  font-family: inherit;
+}
